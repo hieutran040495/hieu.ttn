@@ -1,5 +1,3 @@
-const { defineConfig } = require('@vue/cli-service')
-module.exports = defineConfig({
-  transpileDependencies: true,
-  publicPath: '/hieu.ttn/'
-})
+module.exports = {
+  publicPath: "/hieutran040495.github.io/",
+};

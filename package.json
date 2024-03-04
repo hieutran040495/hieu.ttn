@@ -3,23 +3,38 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --port 4000 --open --mode development",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "prettier:check": "prettier --config ./.prettierrc --ignore-path ./.prettierignore --list-different \"{src,tests}/{assets,layouts,components,locales,plugins,router,shared,stores,stylesheets,views,e2e,unit}/**/*{.ts,.vue,.js,.json,.scss,.md}\"",
+    "prettier:fix": "prettier --config ./.prettierrc --ignore-path ./.prettierignore --write \"{src,tests}/{assets,layouts,components,locales,plugins,router,shared,stores,stylesheets,views,e2e,unit}/**/*{.ts,.vue,.js,.json,.scss,.md}\"",
+    "full-lint": "yarn run prettier:check && yarn run lint:css && yarn run lint:js",
     "deploy": "sh deploy.sh"
   },
   "dependencies": {
-    "core-js": "^3.8.3",
-    "vue": "^2.6.14"
+    "vue": "^2.6.14",
+    "vue-class-component": "^7.2.3",
+    "vue-property-decorator": "^9.1.2",
+    "vue-router": "^3.5.1",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.16",
-    "@babel/eslint-parser": "^7.12.16",
-    "@vue/cli-plugin-babel": "~5.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-plugin-typescript": "~5.0.0",
+    "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "@vue/eslint-config-typescript": "^9.1.0",
     "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.0.3",
+    "prettier": "^2.4.1",
+    "sass": "^1.32.7",
+    "sass-loader": "^12.0.0",
+    "typescript": "~4.5.5",
     "vue-template-compiler": "^2.6.14"
   },
   "eslintConfig": {
@@ -29,10 +44,12 @@
     },
     "extends": [
       "plugin:vue/essential",
-      "eslint:recommended"
+      "eslint:recommended",
+      "@vue/typescript/recommended",
+      "plugin:prettier/recommended"
     ],
     "parserOptions": {
-      "parser": "@babel/eslint-parser"
+      "ecmaVersion": 2020
     },
     "rules": {}
   },
