@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: "/hieu.ttn/dist/",
+  publicPath: "/hieu.ttn/",
 };
