@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: "/hieutran040495.github.io/dist/",
+  publicPath: "/hieuttn/dist/",
 };
