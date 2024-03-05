@@ -1,28 +1,84 @@
-import Vue from "vue";
-import VueRouter, { RouteConfig } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import Vue from 'vue';
+import VueRouter, { RouteConfig } from 'vue-router';
+import lazyLoadService from '@/shared/utils/lazy-load.service';
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
-    path: "/",
-    name: "home",
-    component: HomeView,
-  },
-  {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+    path: '/',
+    component: {
+      template: '<router-view></router-view>',
+    },
+    meta: {
+      isDefaultLayout: false,
+    },
+    children: [
+      {
+        path: '',
+        name: 'Home',
+        component: lazyLoadService.loadView('HomeView'),
+        meta: {
+          isDefaultLayout: true,
+        },
+      },
+      // {
+      //   path: 'search',
+      //   name: 'SearchPage',
+      //   component: lazyLoadService.loadView('search'),
+      //   meta: {
+      //     isDefaultLayout: false,
+      //   },
+      // },
+      {
+        path: 'todo',
+        name: 'TodoPage',
+        component: lazyLoadService.loadView('TodoView'),
+        meta: {
+          isDefaultLayout: false,
+        },
+      },
+      {
+        path: 'todo/create',
+        name: 'TodoCEPage',
+        component: lazyLoadService.loadView('TodoCEView'),
+        meta: {
+          isDefaultLayout: false,
+        },
+      },
+      {
+        path: 'job-listings',
+        name: 'JobListingPage',
+        component: lazyLoadService.loadView('JobListingsView'),
+        meta: {
+          isDefaultLayout: false,
+        },
+      },
+      {
+        path: 'weather',
+        name: 'WeatherPage',
+        component: lazyLoadService.loadView('WeatherView'),
+        meta: {
+          isDefaultLayout: false,
+        },
+      },
+      {
+        path: '404',
+        name: 'NotFoundPage',
+        component: lazyLoadService.loadView('404'),
+      },
+      // {
+      //   path: '**',
+      //   redirect: {
+      //     name: 'HomePage',
+      //   },
+      // },
+    ],
   },
 ];
 
 const router = new VueRouter({
-  mode: "history",
+  mode: 'history',
   base: process.env.BASE_URL,
   routes,
 });

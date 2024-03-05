@@ -1,18 +1,30 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
-  </div>
+  <v-container fluid class="pa-0">
+    <Banner />
+    <About />
+    <Skills />
+    <Projects />
+    <Experience />
+  </v-container>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+import { Vue, Component } from 'vue-property-decorator';
+import LazyLoadService from '@/shared/utils/lazy-load.service';
 
 @Component({
+  name: 'HomePage',
   components: {
-    HelloWorld,
+    Banner: LazyLoadService.loadComponent('banner/Banner'),
+    About: LazyLoadService.loadComponent('about/About'),
+    Skills: LazyLoadService.loadComponent('skills/Skills'),
+    Projects: LazyLoadService.loadComponent('projects/Projects'),
+    Experience: LazyLoadService.loadComponent('experience/Experience'),
   },
 })
-export default class HomeView extends Vue {}
+export default class HomeView extends Vue {
+  mounted() {
+    //
+  }
+}
 </script>
