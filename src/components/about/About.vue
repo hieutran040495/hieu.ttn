@@ -11,7 +11,7 @@
       >
         <div class="home-about__item home-about__left d-flex align-end">
           <div class="year">
-            <h3>7</h3>
+            <h3>{{ yearEx }}</h3>
             <span class="year-rounded">
               <img src="@/assets/images/flower.png" alt="">
             </span>
@@ -90,11 +90,16 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
+import moment from 'moment';
 
 @Component({
   name: 'AboutComponent',
 })
-export default class AboutComponent extends Vue {}
+export default class AboutComponent extends Vue {
+  get yearEx() {
+    return moment().year() - 2019;
+  }
+}
 </script>
 <style lang="scss">
 @import './About.scss';

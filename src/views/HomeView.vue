@@ -22,9 +22,5 @@ import LazyLoadService from '@/shared/utils/lazy-load.service';
     Experience: LazyLoadService.loadComponent('experience/Experience'),
   },
 })
-export default class HomeView extends Vue {
-  mounted() {
-    //
-  }
-}
+export default class HomeView extends Vue {}
 </script>

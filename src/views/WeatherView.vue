@@ -72,7 +72,6 @@ export default class WeatherView extends Vue {
 
   get backgroundImage() {
     return `url(${require(`@/assets/images/${this.weather.weatherBg}`)})`;
-    // return '';
   }
 
   async checkWeather() {
@@ -91,7 +90,7 @@ export default class WeatherView extends Vue {
       this.weather.city = data.name;
       this.weather.weather_condition = data.weather[0].main;
     } catch (error) {
-      console.error(error);
+      //
     }
   }
 }

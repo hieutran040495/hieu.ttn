@@ -32,6 +32,8 @@
     font-size: 16px;
     text-transform: uppercase;
     font-weight: 500;
+    color: var(--main-color);
+    letter-spacing: 0.8px;
 
     &::before {
       position: absolute;

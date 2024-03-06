@@ -24,7 +24,7 @@
         </div>
       </div>
     </v-card>
-    <v-navigation-drawer
+    <!-- <v-navigation-drawer
       v-model="drawer"
       absolute
       temporary
@@ -42,7 +42,7 @@
           </a>
         </v-list-item>
       </v-list>
-    </v-navigation-drawer>
+    </v-navigation-drawer> -->
   </v-app>
 </template>
 

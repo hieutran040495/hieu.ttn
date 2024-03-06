@@ -22,14 +22,6 @@ const routes: Array<RouteConfig> = [
           isDefaultLayout: true,
         },
       },
-      // {
-      //   path: 'search',
-      //   name: 'SearchPage',
-      //   component: lazyLoadService.loadView('search'),
-      //   meta: {
-      //     isDefaultLayout: false,
-      //   },
-      // },
       {
         path: 'todo',
         name: 'TodoPage',

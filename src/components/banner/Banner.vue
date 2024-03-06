@@ -6,10 +6,10 @@
         <h3 class="home-banner__name">
           <span>I</span>
           AM <br />
-          Alex.
+          Hieu.
         </h3>
 
-        <span class="home-banner__welcome">Welcome to my Agency</span>
+        <span class="home-banner__welcome">Frontend Developer</span>
       </div>
     </div>
     <span class="shape shape-1">
